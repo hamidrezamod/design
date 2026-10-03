@@ -839,3 +839,37 @@ html {
 .nav-btn:hover {
     transform: scale(1.05); /* بزرگ شدن ملایم دکمه در هاور */
 }
+
+/* =========================================
+   Scroll Animations
+   ========================================= */
+/* حالت اولیه (مخفی) تمام عناصری که قراره انیمیشن داشته باشن */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform; /* بهینه سازی برای رندر توسط GPU */
+}
+
+/* جهت های شروع حرکت */
+.fade-left {
+    transform: translateX(-80px); /* شروع از سمت چپ */
+}
+
+.fade-right {
+    transform: translateX(80px); /* شروع از سمت راست */
+}
+
+/* تک ستونه ها (داینامیک تغییر می کند) */
+.fade-vertical.from-bottom {
+    transform: translateY(80px); /* شروع از پایین */
+}
+
+.fade-vertical.from-top {
+    transform: translateY(-80px); /* شروع از بالا */
+}
+
+/* حالتی که عنصر وارد دید کاربر می شود (کلاس is-visible توسط JS اضافه می شود) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) !important; /* برگشتن به جایگاه اصلی */
+}
