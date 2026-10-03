@@ -421,3 +421,138 @@ body {
     color: #6C8EC9;
     border: 1px solid #6C8EC9;
 }
+
+/* =========================================
+   Contact Section
+   ========================================= */
+.contact-section {
+    padding: 120px 0;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px; /* فاصله 64 پیکسلی بین آیکون ها */
+}
+
+.contact-icons a {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out; /* یک افکت هاور نرم و اختیاری */
+}
+
+.contact-icons a:hover {
+    transform: translateY(-4px);
+}
+
+.contact-icons a img {
+    width: 92.83px;
+    height: 92.83px;
+    display: block;
+}
+
+/* =========================================
+   Resume Section
+   ========================================= */
+.resume-section {
+    padding: 120px 0;
+}
+
+.resume-main-title {
+    font-size: 50px;
+    font-weight: 500;
+    color: #000000;
+    line-height: normal;
+    margin-bottom: 80px; /* فاصله تا محتوای رزومه */
+}
+
+/* ساختار بخش های داخلی رزومه */
+.resume-block {
+    margin-bottom: 80px; /* فاصله 80 پیکسلی بین بخش ها */
+}
+
+.resume-block:last-child {
+    margin-bottom: 0;
+}
+
+.resume-subtitle {
+    font-size: 30px;
+    font-weight: 500;
+    color: #000000;
+    line-height: normal;
+    margin-bottom: 64px; /* فاصله تایتل تا محتوای داخلی هر بخش */
+}
+
+/* تگ h5 برای عناوین شغلی، نرم افزارها، مقاطع و زبان */
+h5 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4; /* 140% */
+    color: #000000;
+    margin: 0; /* ریست کردن مارجین پیش فرض مرورگر */
+}
+
+/* ---- Work Experience ---- */
+.job-item {
+    margin-bottom: 32px; /* فاصله بین هر شغل */
+}
+
+.job-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px; /* فاصله تایتل تا مشخصات روبروش */
+    margin-bottom: 16px; /* فاصله عنوان تا توضیحات شغل */
+}
+
+.job-meta {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4; /* 140% */
+    color: #000000;
+}
+
+.job-desc {
+    padding-left: 20px; /* ایجاد فاصله برای بولت پوینت ها */
+    margin: 0;
+}
+
+.job-desc li {
+    margin-bottom: 8px; /* فاصله بین خطوط بولت ها */
+}
+
+.job-desc li:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- Software ---- */
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 ستون هم اندازه */
+    gap: 32px; /* فاصله بین سطرها و ستون ها */
+}
+
+.software-item {
+    display: flex;
+    align-items: baseline;
+    white-space: pre-wrap; /* برای حفظ فاصله تایپ شده بین اسم و سطح */
+}
+
+/* ---- Education & Language ---- */
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* فاصله بین مقاطع / زبان ها */
+}
+
+.list-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px; /* فاصله بین اسم مدرک، دانشگاه و سال */
+}
