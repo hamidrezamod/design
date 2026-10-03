@@ -155,6 +155,8 @@ body {
 .small-project-card:hover .project-bg {
     transform: scale(1.04); /* زوم 4 درصدی بسیار نرم */
 }
+/* بالا آمدن متن روی هر دو نوع کارت (صفحه اصلی و صفحات داخلی) */
+.project-card:hover .hover-overlay,
 .small-project-card:hover .hover-overlay {
     transform: translateY(0);
 }
