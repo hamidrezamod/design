@@ -194,7 +194,7 @@ body {
 /* =========================================
    Global Utilities (برای جلوگیری از تکرار کد)
    ========================================= */
-.mb-80 { margin-bottom: 80px; margin-top: 80px; }
+.mb-80 { margin-bottom: 80px; margin-top: 80px; padding-bottom: 80px; padding-top: 80px; }
 .mb-64 { margin-bottom: 64px; }
 .mb-32 { margin-bottom: 32px; }
 .mt-32 { margin-top: 32px; }
