@@ -924,3 +924,179 @@ html {
         filter: blur(0);
     }
 }
+
+/* =========================================
+   Responsive Design (Tablet & Mobile)
+   ========================================= */
+
+/* ------------- Tablet & Small Laptops (Max Width: 1024px) ------------- */
+@media screen and (max-width: 1024px) {
+    /* کاهش پدینگ های کناری */
+    .container, .product-wrapper {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    
+    /* تنظیم تایپوگرافی برای تبلت */
+    .hero-text, .text-h1 { font-size: 44px; }
+    .section-header h2, .main-title, .text-h2, .resume-main-title { font-size: 40px; }
+    
+    /* تنظیم کارت های صفحه اصلی و صفحات داخلی */
+    .top-card, .square-card {
+        width: calc(50% - 16px); /* 50 درصد عرض منهای نصف فاصله */
+        height: auto;
+        aspect-ratio: 1 / 1; /* حفظ تناسب مربع */
+    }
+    
+    .bottom-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* حفظ تناسب مستطیل */
+    }
+
+    /* تنظیم بخش وب دیزاین و پروژه های دیگر به 2 ستون در تبلت */
+    .projects-grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* تنظیم نرم افزارها به 2 ستون */
+    .software-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ------------- Mobile Devices (Max Width: 768px) ------------- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. پدینگ ها و فاصله های کلی */
+    .container, .product-wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero-section, .page-section, .subpage-hero, .resume-section, .contact-section, .about-product-section {
+        padding: 64px 0; /* کاهش فاصله بین سکشن ها */
+    }
+
+    .mb-80, .py-80 { margin-bottom: 48px; padding-top: 48px; padding-bottom: 48px; }
+    .mb-64 { margin-bottom: 32px; }
+
+    /* 2. تایپوگرافی موبایل (استاندارد، خوانا و شیک) */
+    .hero-text, .text-h1 { font-size: 32px; }
+    .section-header h2, .main-title, .text-h2, .resume-main-title { font-size: 32px; }
+    .section-subtitle, .card-title, .project-title { font-size: 24px; }
+    h4, h5, .final-text { font-size: 18px; }
+    .body-text, .text-body, .bio-info p, .nav-link, .nav-btn { font-size: 16px; }
+    
+    /* 3. نوبار (منوی بالا) */
+    .main-navbar {
+        gap: 16px;
+        padding: 8px 12px;
+        flex-wrap: wrap; /* در صورت نیاز به خط بعد میرود */
+        justify-content: center;
+    }
+
+    /* 4. کارت ها و گریدها (تک ستونه شدن) */
+    .top-card, .square-card, .bottom-card, .small-project-card {
+        width: 100%;
+        height: auto;
+    }
+    
+    .top-card, .square-card, .small-project-card {
+        aspect-ratio: 1 / 1;
+    }
+
+    .projects-grid, .grid-2, .projects-grid-2, .projects-grid-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* 5. حل مشکل Hover در موبایل (نمایش همیشگی عنوان پروژه‌ها) */
+    .hover-overlay {
+        transform: translateY(0) !important; /* متن همیشه دیده می‌شود */
+        padding: 24px; /* پدینگ کمتر برای اینکه عکس زیاد پوشانده نشود */
+        background-color: rgba(0, 0, 0, 0.6); /* کمی تیره‌تر برای خوانایی بهتر */
+    }
+    
+    .open-icon {
+        width: 24px; /* کوچک کردن آیکون در موبایل */
+        height: 24px;
+    }
+
+    /* 6. سکشن درباره من (Introduce Myself) */
+    .bio-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .bio-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .final-box {
+        padding: 64px 24px;
+        flex-direction: column; /* ستاره ها و متن زیر هم */
+    }
+
+    .charts-wrapper {
+        height: 400px; /* ارتفاع کمتر برای موبایل */
+    }
+    
+    .charts-overlay {
+        min-width: 90%;
+        padding: 24px;
+    }
+
+    /* 7. کانتکت و فوتر */
+    .contact-icons {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+    
+    .contact-icons a img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .footer-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    /* 8. صفحات داخلی (Metadata و جداول) */
+    .hero-title-wrapper {
+        flex-direction: column;
+    }
+    
+    .metadata-table {
+        margin-left: 0; /* ریست کردن فاصله از چپ در موبایل */
+    }
+    
+    .meta-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* 9. رزومه */
+    .software-grid {
+        grid-template-columns: 1fr; /* تک ستونه شدن نرم افزارها */
+    }
+    
+    .job-header, .list-item {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+/* ------------- Small Phones (Max Width: 480px) ------------- */
+@media screen and (max-width: 480px) {
+    .hero-text, .text-h1 { font-size: 28px; }
+    .section-header h2, .main-title, .text-h2, .resume-main-title { font-size: 28px; }
+    
+    /* کوچک کردن بیشتر نوبار برای گوشی های خیلی کوچک */
+    .nav-link, .nav-btn { font-size: 14px; }
+    .main-navbar { gap: 12px; }
+}
