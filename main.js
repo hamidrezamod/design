@@ -81,39 +81,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-   /* =========================================
-   Modern Hero Entrance Animation (Fade Up + Blur)
-   ========================================= */
-
-/* حالت اولیه: مخفی، کمی پایین‌تر و تار */
-.profile-img, .title-icon,
-.hero-text, .text-h1,
-.metadata-table {
-    opacity: 0;
-    transform: translateY(40px);
-    filter: blur(12px);
-    /* استفاده از cubic-bezier برای یک انیمیشن فوق‌العاده نرم و سینمایی */
-    animation: heroReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-/* زمان‌بندی ورود (تاخیرهای پشت سر هم) */
-.profile-img, .title-icon {
-    animation-delay: 0.1s;
-}
-
-.hero-text, .text-h1 {
-    animation-delay: 0.3s; /* متن هیرو کمی بعد از عکس میاد */
-}
-
-.metadata-table {
-    animation-delay: 0.5s; /* اطلاعات زیر متن در نهایت میاد */
-}
-
-/* کی‌فریم اجرای انیمیشن */
-@keyframes heroReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
+  
