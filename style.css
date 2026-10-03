@@ -968,46 +968,58 @@ html {
 /* ------------- Mobile Devices (Max Width: 768px) ------------- */
 @media screen and (max-width: 768px) {
     
-    /* 1. پدینگ کناری (16 پیکسل) */
+    /* 1. پدینگ کناری استاندارد (16 پیکسل) */
     .container {
         padding-left: 16px;
         padding-right: 16px;
     }
 
-    /* 2. بخش Introduce Myself (بکگراند خاکستری تمام عرض) */
-    .product-wrapper {
-        border-radius: 0; /* گردی گوشه باکس اصلی حذف میشه تا تمام عرض بشه */
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    
-    /* 3. کاهش گردی گوشه ها */
-    .project-card, .small-project-card, .card-white, .trait-card, 
-    .full-width-image, .final-box, .charts-wrapper, .charts-overlay {
-        border-radius: 32px; /* تبدیل 48 به 32 */
-    }
-
-    .bio-image, .highlight-yellow, .highlight-green, .main-navbar {
-        border-radius: 24px; /* تبدیل های مربوطه، از جمله نوبار */
-    }
-
-    /* 4. تایپوگرافی موبایل */
+    /* 2. سکشن هیرو */
     .hero-text, .text-h1 { 
+        text-align: left; /* تراز دقیق از سمت چپ بر اساس متن */
         font-size: 32px; 
-        line-height: 1.2; /* ارتفاع خط 10 درصد بیشتر شد (از 1.1 به 1.2) */
+        line-height: 1.2; /* افزایش 10 درصدی ارتفاع خط */
+    }
+
+    /* 3. سکشن کیس استادی و وب دیزاین */
+    .section-header h2, .main-title, .text-h2, .resume-main-title { 
+        font-size: 32px; 
+        font-weight: 500;
     }
     
-    .section-header h2, .main-title, .text-h2, .resume-main-title { font-size: 32px; }
-    .section-subtitle, .card-title { font-size: 24px; }
-    
-    /* سایز نوشته هاور (تغییر به 20 پیکسل) */
-    .project-title { font-size: 20px; }
+    .section-subtitle, .card-title, .resume-subtitle { 
+        font-size: 24px; 
+        font-weight: 500;
+    }
 
-    /* 5. کارت ها و گریدها */
+    /* استایل های هاور روی موبایل (تبدیل به استایل بادی) */
+    .hover-overlay {
+        transform: translateY(0) !important; 
+        padding: 16px; /* پدینگ بالا و پایین (و چپ و راست) 16 پیکسل */
+        background-color: rgba(0, 0, 0, 0.6); 
+        align-items: flex-start; /* تراز آیکون با بالای عنوان */
+        gap: 8px; /* فاصله آیکون تا عنوان 8 پیکسل */
+    }
+
+    .project-title {
+        font-family: 'Manrope', sans-serif;
+        font-size: 16px; /* سایز بادی در موبایل */
+        font-weight: 400; /* وزن بادی */
+        line-height: 1.6; /* ارتفاع خط بادی */
+    }
+
+    .open-icon {
+        width: 25px; /* سایز جدید آیکون */
+        height: 25px;
+        margin-top: 2px; /* تنظیم ریز برای هم‌راستا شدن دقیق با لبه بالایی فونت */
+    }
+
+    /* 4. کارت ها و گریدها */
     .top-card, .square-card, .bottom-card, .small-project-card {
         width: 100%;
         height: auto;
-        aspect-ratio: 1 / 1; /* همه عکس ها مربعی میشن، از جمله ویندوز */
+        aspect-ratio: 1 / 1; 
+        border-radius: 32px; /* گردی گوشه ها */
     }
 
     .projects-grid, .grid-2, .projects-grid-2, .projects-grid-3 {
@@ -1016,54 +1028,97 @@ html {
         gap: 24px;
     }
 
-    /* 6. حل مشکل Hover در موبایل */
-    .hover-overlay {
-        transform: translateY(0) !important; 
-        padding: 24px; 
-        background-color: rgba(0, 0, 0, 0.6); 
+    /* 5. سکشن درباره من (Introduce Myself) */
+    .about-product-section .container {
+        padding-left: 0; /* حذف فاصله از کناره های صفحه */
+        padding-right: 0;
     }
 
-    /* 7. سکشن فاینال (15 درصد کوچکتر شدن آیکون ها) */
+    .product-wrapper {
+        border-radius: 32px; /* گردی 32 پیکسلی برای پس زمینه خاکستری */
+        padding: 64px 0; /* حذف پدینگ داخلی چپ و راست برای تمام عرض شدن */
+        width: 100%;
+    }
+
+    /* المان های داخلی سکشن درباره من (فاصله 16 پیکسلی از کناره ها) */
+    .main-title, .section-header-inline, .section-subtitle {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .card-white, .trait-card, .final-box, .charts-overlay {
+        border-radius: 32px;
+        padding-left: 16px; /* محتوای داخلی کارت ها فقط 16 پیکسل پدینگ دارند */
+        padding-right: 16px;
+        margin-left: 16px; /* فاصله خود کارت از لبه خاکستری */
+        margin-right: 16px;
+    }
+
+    .full-width-image, .charts-wrapper {
+        border-radius: 32px;
+        width: calc(100% - 32px); /* عرض منهای فاصله های کناری */
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    /* سکشن فاینال (کاهش 15 درصدی آیکون) */
     .final-box {
-        padding: 64px 24px;
+        padding-top: 64px;
+        padding-bottom: 64px;
         flex-direction: column; 
     }
     
     .final-icon {
-        width: 51.9px; /* 15 درصد کاهش از 61.07 */
+        width: 51.9px; 
         height: 51.9px;
     }
 
-    /* 8. آیکون های کانتکت (3 تا بالا، 2 تا پایین) */
+    .bio-header { flex-direction: column; align-items: flex-start; }
+    .bio-image { width: 120px; height: 120px; border-radius: 24px; }
+    
+    .highlight-yellow, .highlight-green, .main-navbar { border-radius: 24px; }
+
+    /* 6. کانتکت سکشن */
     .contact-icons {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 24px;
-        max-width: 320px; /* این محدودیت عرض باعث میشه دقیقا 3 تا بالا و 2 تا پایین بشکنه */
+        gap: 40px; /* فاصله 40 پیکسل بین آیکون ها و ردیف ها */
+        /* ترفند مهندسی: 3 آیکون 60 پیکسلی + 2 فاصله 40 پیکسلی = 260 پیکسل */
+        max-width: 260px; 
         margin: 0 auto;
     }
+    
+    .contact-icons a img {
+        width: 60px; /* سایز دقیق آیکون ها */
+        height: 60px;
+    }
 
-    /* 9. آیکون های فوتر (2 ردیف 3 تایی) */
+    /* 7. رزومه سکشن */
+    .job-desc {
+        font-size: 16px; /* فونت بادی برای توضیحات شغل */
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    .software-grid { grid-template-columns: 1fr; }
+    .job-header, .list-item { flex-direction: column; gap: 4px; }
+
+    /* 8. فوتر */
     .footer-icons {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* دو ردیف سه تایی */
         gap: 24px;
         justify-items: center;
     }
 
-    /* 10. بقیه موارد (تطبیق فاصله ها و رزومه) */
+    .site-footer {
+        padding-bottom: 24px; /* کاهش فاصله پایین فوتر تا انتهای صفحه */
+    }
+
+    /* 9. فواصل عمومی (پدینگ ها) */
     .mb-80, .py-80 { margin-bottom: 48px; padding-top: 48px; padding-bottom: 48px; }
     .hero-section, .page-section, .subpage-hero, .resume-section, .contact-section, .about-product-section { padding: 64px 0; }
-    
-    .bio-header { flex-direction: column; align-items: flex-start; }
-    .charts-wrapper { height: 400px; }
-    .charts-overlay { min-width: 90%; padding: 24px; }
-    
-    .software-grid { grid-template-columns: 1fr; }
-    .job-header, .list-item { flex-direction: column; gap: 4px; }
 }
-
 /* ------------- Small Phones (Max Width: 480px) ------------- */
 @media screen and (max-width: 480px) {
     .hero-text, .text-h1 { font-size: 28px; }
