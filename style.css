@@ -194,17 +194,12 @@ body {
 /* =========================================
    Global Utilities (برای جلوگیری از تکرار کد)
    ========================================= */
-/* کلاس های پدینگ جدید برای ایجاد فاصله 160 پیکسلی بین سکشن ها */
-.pb-80 { padding-bottom: 80px; }
-.py-80 { padding-top: 80px; padding-bottom: 80px; }
-
-/* همون کلاس های قبلی */
+.mb-80 { margin-bottom: 80px; margin-top: 80px; }
 .mb-64 { margin-bottom: 64px; }
 .mb-32 { margin-bottom: 32px; }
 .mt-32 { margin-top: 32px; }
 .mt-8  { margin-top: 8px; }
 .text-center { text-align: center; }
-
 
 /* تنظیمات پایه‌ای متن (Body Style) */
 .body-text {
@@ -250,9 +245,8 @@ body {
     font-weight: 500;
     color: #000000;
     /* این تیتر چون خودش 64 پیکسل پدینگ از لبه بالایی باکس خاکستری داره، پس فاصله بالا اوکیه */
-    margin-bottom: 80px; /* 80 پیکسل فاصله تا سکشن پایینی */
+    margin-bottom: 0px; /* 80 پیکسل فاصله تا سکشن پایینی */
 }
-
 .section-subtitle {
     font-size: 30px;
     font-weight: 500;
@@ -282,8 +276,8 @@ body {
 }
 
 .bio-image {
-    width: 223.57px;
-    height: 223.57px;
+    width: 172.5px; /* هم سایز با عکس هیرو در نظر گرفتم (اگر در طراحی فرق داره بگو) */
+    height: 172.5px;
     border-radius: 24px;
     object-fit: cover;
 }
