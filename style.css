@@ -777,3 +777,65 @@ h5 {
     height: 100%;
     object-fit: cover;
 }
+/* =========================================
+   Global Scroll Behavior (برای اسکرول نرم)
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   Navbar Section
+   ========================================= */
+.navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* قرار گرفتن روی تمامی لایه های سایت */
+    width: 100%;
+    padding: 64px 0; /* پدینگ بالا و پایین سکشن 64 پیکسل */
+    display: flex;
+    justify-content: center; /* وسط چین کردن نوبار */
+    pointer-events: none; /* این کد باعث میشه فضای نامرئی 64 پیکسلی مانع کلیک روی سایت نشه */
+}
+
+.main-navbar {
+    background-color: #5174B1;
+    border-radius: 24px;
+    padding: 8px 16px; /* فاصله 8 بالا/پایین و 16 چپ/راست برای کل نوبار */
+    display: flex;
+    align-items: center;
+    gap: 32px; /* فاصله 32 پیکسلی بین دکمه ها */
+    pointer-events: auto; /* فعال کردن مجدد کلیک برای خود نوبار آبی رنگ */
+    box-shadow: 0 4px 24px rgba(81, 116, 177, 0.2); /* یه سایه خیلی ملایم و همرنگ برای زیبایی در هنگام اسکرول */
+}
+
+.nav-link {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8; /* افکت هاور نرم برای لینک های متنی */
+}
+
+/* دکمه Contact داخل نوبار */
+.nav-btn {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #5174B1;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    padding: 4px 14px; /* پدینگ اختصاصی دکمه کانتکت */
+    border-radius: 24px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05); /* بزرگ شدن ملایم دکمه در هاور */
+}
