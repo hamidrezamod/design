@@ -123,8 +123,9 @@ body {
 .project-bg {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* حفظ تناسب عکس در ابعاد تعیین شده */
+    object-fit: cover;
     display: block;
+    transition: transform 0.4s ease-in-out; /* انیمیشن نرم و مدرن */
 }
 
 /* =========================================
@@ -135,26 +136,28 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* مشکی با شفافیت 45 درصد */
-    backdrop-filter: blur(13.2px); /* افکت بلر */
-    -webkit-backdrop-filter: blur(13.2px); /* برای پشتیبانی سافاری */
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(13.2px);
+    -webkit-backdrop-filter: blur(13.2px);
     padding: 32px;
     
-    /* تنظیمات انیمیشن */
+    /* انیمیشن بالا اومدن نرم تر شد */
     transform: translateY(100%);
-    transition: transform 300ms ease-out;
+    transition: transform 0.4s ease-in-out; 
     
-    /* تنظیمات چیدمان داخلی */
     display: flex;
-    align-items: first-start;
-    gap: 8px; /* فاصله آیکون تا عنوان */
+    align-items: flex-start;
+    gap: 8px;
 }
 
-/* اجرای افکت هاور */
-.project-card:hover .hover-overlay {
+/* بزرگ شدن عکس موقع هاور (روی تمامی کارت های سایت) */
+.project-card:hover .project-bg,
+.small-project-card:hover .project-bg {
+    transform: scale(1.04); /* زوم 4 درصدی بسیار نرم */
+}
+.small-project-card:hover .hover-overlay {
     transform: translateY(0);
 }
-
 .open-icon {
     width: 40px; /* سایز آیکون - در صورت نیاز تغییر بده */
     height: 40px;
@@ -680,12 +683,20 @@ h5 {
     flex-shrink: 0;
 }
 
+/* چیدمان جدید اطلاعات هیرو در صفحات داخلی */
 .metadata-table {
     display: flex;
+    flex-direction: column; /* قرار دادن ردیف ها زیر هم */
+    gap: 16px; /* فاصله 16 پیکسلی بین دو ردیف */
+    margin-top: 32px;
+    /* عرض آیکون 67.11 + فاصله 16 پیکسلی = 83.11 پیکسل (تراز دقیق با شروع متن) */
+    margin-left: 83.11px; 
+}
+
+.meta-row {
+    display: flex;
     flex-wrap: wrap;
-    row-gap: 16px; /* فاصله ردیف ها */
-    column-gap: 32px; /* فاصله ستون ها */
-    margin-top: 32px; /* فاصله جدول از تایتل */
+    gap: 32px; /* فاصله بین آیتم ها در یک ردیف */
 }
 
 .meta-item {
