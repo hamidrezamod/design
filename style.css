@@ -556,3 +556,61 @@ h5 {
     align-items: baseline;
     gap: 16px; /* فاصله بین اسم مدرک، دانشگاه و سال */
 }
+/* =========================================
+   Footer Section
+   ========================================= */
+.site-footer {
+    width: 100%; /* عرض کامل صفحه */
+    background-color: #F0F0F0;
+    border-radius: 48px 48px 0 0; /* گردی گوشه ها فقط برای بالا سمت چپ و راست */
+    
+    /* فاصله 64 پیکسل از بالا و 64 از پایین. 
+       اگر واقعا منظورت 6 پیکسل بود، مقدار 64px دومی رو بکن 6px */
+    padding: 64px 0 64px 0; 
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* وسط چین کردن کل محتوای فوتر */
+}
+
+.footer-icons {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* فاصله بین آیکون های فوتر */
+    margin-bottom: 64px; /* فاصله بین آیکون ها و بخش متن */
+}
+
+.footer-icons a {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+    transform: translateY(-4px); /* افکت هاور نرم */
+}
+
+.footer-icons a img {
+    width: 39.35px;
+    height: 39.35px;
+    display: block;
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* فاصله بین دو خط نوشته */
+}
+
+.footer-text p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4; /* 140% */
+    color: #000000;
+    margin: 0;
+    text-align: center;
+}
