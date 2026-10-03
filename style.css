@@ -194,12 +194,17 @@ body {
 /* =========================================
    Global Utilities (برای جلوگیری از تکرار کد)
    ========================================= */
-.mb-80 { margin-bottom: 80px; }
+/* کلاس های پدینگ جدید برای ایجاد فاصله 160 پیکسلی بین سکشن ها */
+.pb-80 { padding-bottom: 80px; }
+.py-80 { padding-top: 80px; padding-bottom: 80px; }
+
+/* همون کلاس های قبلی */
 .mb-64 { margin-bottom: 64px; }
 .mb-32 { margin-bottom: 32px; }
 .mt-32 { margin-top: 32px; }
 .mt-8  { margin-top: 8px; }
 .text-center { text-align: center; }
+
 
 /* تنظیمات پایه‌ای متن (Body Style) */
 .body-text {
@@ -229,20 +234,23 @@ body {
    Introduce Myself Section
    ========================================= */
 .about-product-section {
-    padding: 120px 0;
+    padding: 120px 0; /* فاصله از سکشن بالایی و پایینی کل صفحه */
 }
 
 .product-wrapper {
+    max-width: 1440px; /* عرض کل 1440 پیکسل */
+    margin: 0 auto; /* وسط چین کردن در صفحه */
     background-color: #F0F0F0;
     border-radius: 48px;
-    padding: 64px 0; /* فاصله بالا و پایین 64 پیکسل */
+    padding: 64px 64px; /* 64 پیکسل پدینگ از بالا/پایین و چپ/راست */
 }
 
 .main-title {
     font-size: 50px;
     font-weight: 500;
     color: #000000;
-    margin-bottom: 80px;
+    /* این تیتر چون خودش 64 پیکسل پدینگ از لبه بالایی باکس خاکستری داره، پس فاصله بالا اوکیه */
+    margin-bottom: 80px; /* 80 پیکسل فاصله تا سکشن پایینی */
 }
 
 .section-subtitle {
