@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ب) عناصر دو ستونه یا سمت چپ (حرکت از چپ به راست)
-    // شامل کارت اول تورب/مووی نایت، و المان های فرد در گرید پرسونا و ستون های چپ
+    // شامل کارت اول تورب، المان های فرد پرسونا، و کارت های فرد در Web Designs
     const leftElements = document.querySelectorAll(`
         .top-card:nth-child(1),
         .projects-grid-2 .small-project-card:nth-child(odd),
         .projects-grid-3 .small-project-card:nth-child(1),
-        .grid-2 > div:nth-child(odd)
+        .grid-2 > div:nth-child(odd),
+        .square-card:nth-child(odd) /* این خط برای بخش Web Designs اضافه شد */
     `);
     
     leftElements.forEach(el => {
@@ -30,19 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ج) عناصر دو ستونه یا سمت راست (حرکت از راست به چپ)
-    // شامل کارت دوم، و المان های زوج در گرید پرسونا و ستون های راست
+    // شامل کارت دوم تورب، المان های زوج پرسونا، و کارت های زوج در Web Designs
     const rightElements = document.querySelectorAll(`
         .top-card:nth-child(2),
         .projects-grid-2 .small-project-card:nth-child(even),
         .projects-grid-3 .small-project-card:nth-child(3),
-        .grid-2 > div:nth-child(even)
+        .grid-2 > div:nth-child(even),
+        .square-card:nth-child(even) /* این خط برای بخش Web Designs اضافه شد */
     `);
     
     rightElements.forEach(el => {
         el.classList.add('animate-on-scroll', 'fade-right');
     });
 
-    // د) کارت وسطی در صفحات وب دیزاین (حرکت عمودی)
+    // د) کارت وسطی در صفحات وب دیزاین در صفحات داخلی (حرکت عمودی)
     const middleElements = document.querySelectorAll('.projects-grid-3 .small-project-card:nth-child(2)');
     middleElements.forEach(el => {
         el.classList.add('animate-on-scroll', 'fade-vertical', 'from-bottom');
@@ -61,21 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             
             if (entry.isIntersecting) {
-                // وقتی عنصر وارد صفحه میشه
                 entry.target.classList.add('is-visible');
             } else {
-                // وقتی عنصر از صفحه خارج میشه (برای اینکه وقتی برگشتیم دوباره انیمیشن اجرا بشه)
                 entry.target.classList.remove('is-visible');
                 
-                // جادوی تغییر جهت تک ستونه ها!
-                // بررسی می کنیم عنصر از بالا خارج شده یا از پایین
+                // تغییر جهت تک ستونه ها
                 if (entry.target.classList.contains('fade-vertical')) {
                     if (entry.boundingClientRect.top > 0) {
-                        // عنصر از پایین صفحه خارج شده (یعنی کاربر رفت بالا) -> دفعه بعد باید از پایین بیاد
                         entry.target.classList.remove('from-top');
                         entry.target.classList.add('from-bottom');
                     } else {
-                        // عنصر از بالای صفحه خارج شده (یعنی کاربر رفت پایین) -> دفعه بعد باید از بالا بیاد
                         entry.target.classList.remove('from-bottom');
                         entry.target.classList.add('from-top');
                     }
