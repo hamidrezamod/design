@@ -74,7 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, observerOptions);
-
+    // --- تغییر تمام انیمیشن ها به حالت عمودی در موبایل ---
+    if (window.innerWidth <= 768) {
+        const allAnimated = document.querySelectorAll('.animate-on-scroll');
+        allAnimated.forEach(el => {
+            el.classList.remove('fade-left', 'fade-right');
+            if (!el.classList.contains('fade-vertical')) {
+                el.classList.add('fade-vertical', 'from-bottom');
+            }
+        });
+    }
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => scrollObserver.observe(el));
 
