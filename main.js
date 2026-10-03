@@ -79,3 +79,47 @@ document.addEventListener("DOMContentLoaded", () => {
     animatedElements.forEach(el => scrollObserver.observe(el));
 
 });
+    // =========================================
+    // Hero Title Letter Animation (Anime.js)
+    // =========================================
+    const heroText = document.querySelector('.hero-text');
+    
+    if (heroText && typeof anime !== 'undefined') {
+        
+        // تابع هوشمند برای جداسازی حروف بدون آسیب به هایلایت های زرد و سبز
+        function wrapLettersPreservingHTML(element) {
+            element.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.nodeValue;
+                    const fragment = document.createDocumentFragment();
+                    for (let char of text) {
+                        if (char.trim() === '') {
+                            fragment.appendChild(document.createTextNode(char));
+                        } else {
+                            const span = document.createElement('span');
+                            span.classList.add('letter');
+                            span.textContent = char;
+                            fragment.appendChild(span);
+                        }
+                    }
+                    node.parentNode.replaceChild(fragment, node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    wrapLettersPreservingHTML(node); // پیمایش داخل اسپان های هایلایت
+                }
+            });
+        }
+
+        // تفکیک حروف
+        wrapLettersPreservingHTML(heroText);
+
+        // اجرای انیمیشن فرود حروف (بدون لوپ)
+        anime({
+            targets: '.hero-text .letter',
+            rotateY: [-90, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            easing: 'easeOutExpo',
+            delay: (el, i) => 30 * i, // فاصله زمانی چرخیدن هر حرف
+            loop: false // بدون لوپ و تکرار
+        });
+    }
