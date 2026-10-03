@@ -873,3 +873,17 @@ html {
     opacity: 1;
     transform: translate(0, 0) !important; /* برگشتن به جایگاه اصلی */
 }
+
+/* =========================================
+   Hero Text Letter Animation Style
+   ========================================= */
+.hero-text, .text-h1 {
+    perspective: 1000px; /* ایجاد فضای سه بعدی برای چرخش حروف */
+}
+
+.hero-text .letter, .text-h1 .letter {
+    display: inline-block;
+    line-height: 1em;
+    transform-origin: 0 0;
+    will-change: transform, opacity;
+}
