@@ -79,47 +79,55 @@ document.addEventListener("DOMContentLoaded", () => {
     animatedElements.forEach(el => scrollObserver.observe(el));
 
 });
-    // =========================================
-    // Hero Title Letter Animation (Anime.js)
-    // =========================================
-    const heroText = document.querySelector('.hero-text');
-    
-    if (heroText && typeof anime !== 'undefined') {
-        
-        // تابع هوشمند برای جداسازی حروف بدون آسیب به هایلایت های زرد و سبز
-        function wrapLettersPreservingHTML(element) {
-            element.childNodes.forEach(node => {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const text = node.nodeValue;
-                    const fragment = document.createDocumentFragment();
-                    for (let char of text) {
-                        if (char.trim() === '') {
-                            fragment.appendChild(document.createTextNode(char));
-                        } else {
-                            const span = document.createElement('span');
-                            span.classList.add('letter');
-                            span.textContent = char;
-                            fragment.appendChild(span);
-                        }
+
+
+   // =========================================
+// Hero Title Letter Animation (Anime.js)
+// =========================================
+if (typeof anime !== 'undefined') {
+    const heroTitles = document.querySelectorAll('.hero-text, .text-h1');
+
+    function wrapLettersPreservingHTML(element) {
+        // نکته کلیدی: استفاده از Array.from باعث میشه جاوا اسکریپت با دیدن تگ های هایلایت متوقف نشه
+        Array.from(element.childNodes).forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.nodeValue;
+                
+                // اگر فقط فضای خالی (Enter/Tab) بین تگ هاست، نادیده بگیر
+                if (text.trim() === '') return;
+
+                const fragment = document.createDocumentFragment();
+                for (let char of text) {
+                    if (char === ' ') {
+                        // حفظ دقیق فاصله ها بین کلمات
+                        fragment.appendChild(document.createTextNode(' '));
+                    } else {
+                        // قرار دادن هر حرف داخل یک اسپان
+                        const span = document.createElement('span');
+                        span.classList.add('letter');
+                        span.textContent = char;
+                        fragment.appendChild(span);
                     }
-                    node.parentNode.replaceChild(fragment, node);
-                } else if (node.nodeType === Node.ELEMENT_NODE) {
-                    wrapLettersPreservingHTML(node); // پیمایش داخل اسپان های هایلایت
                 }
-            });
-        }
+                node.parentNode.replaceChild(fragment, node);
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                // وقتی به کلمات هایلایت شده رسید، بره داخلشون و حروف اون ها رو هم جدا کنه
+                wrapLettersPreservingHTML(node);
+            }
+        });
+    }
 
-        // تفکیک حروف
-        wrapLettersPreservingHTML(heroText);
+    heroTitles.forEach(heroTitle => {
+        wrapLettersPreservingHTML(heroTitle);
 
-        // اجرای انیمیشن فرود حروف (بدون لوپ)
         anime({
-            targets: '.hero-text .letter',
+            targets: heroTitle.querySelectorAll('.letter'),
             rotateY: [-90, 0],
             opacity: [0, 1],
             duration: 1000,
             easing: 'easeOutExpo',
-            delay: (el, i) => 30 * i, // فاصله زمانی چرخیدن هر حرف
-            loop: false // بدون لوپ و تکرار
+            delay: (el, i) => 25 * i, // تاخیر بین حروف. هرچی عدد کمتر بشه سریع تر تموم میشه
+            loop: false
         });
-    }
+    });
+}
