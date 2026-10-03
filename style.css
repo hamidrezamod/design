@@ -190,3 +190,232 @@ body {
     width: 640px;
     height: 640px;
 }
+
+/* =========================================
+   Global Utilities (برای جلوگیری از تکرار کد)
+   ========================================= */
+.mb-80 { margin-bottom: 80px; }
+.mb-64 { margin-bottom: 64px; }
+.mb-32 { margin-bottom: 32px; }
+.mt-32 { margin-top: 32px; }
+.mt-8  { margin-top: 8px; }
+.text-center { text-align: center; }
+
+/* تنظیمات پایه‌ای متن (Body Style) */
+.body-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6; /* 160% */
+    color: #000000;
+}
+
+.body-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #000000;
+}
+
+/* ساختار شبکه ای دوتایی */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+/* =========================================
+   Introduce Myself Section
+   ========================================= */
+.about-product-section {
+    padding: 120px 0;
+}
+
+.product-wrapper {
+    background-color: #F0F0F0;
+    border-radius: 48px;
+    padding: 64px 0; /* فاصله بالا و پایین 64 پیکسل */
+}
+
+.main-title {
+    font-size: 50px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 80px;
+}
+
+.section-subtitle {
+    font-size: 30px;
+    font-weight: 500;
+    color: #000000;
+    line-height: normal;
+}
+
+/* کارت های سفید عمومی */
+.card-white {
+    background-color: #FFFFFF;
+    border-radius: 48px;
+    padding: 32px;
+}
+
+.card-title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #000000;
+    line-height: normal;
+}
+
+/* -------- Persona Section -------- */
+.bio-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bio-image {
+    width: 223.57px;
+    height: 223.57px;
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+.bio-info p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600; /* وزن 600 طبق درخواست */
+    line-height: 1.6;
+    color: #000000;
+    margin-bottom: 8px; /* فاصله خطوط */
+}
+.bio-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* کارت های 4 گانه Traits */
+.trait-card {
+    border-radius: 48px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.trait-header {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* فاصله آیکون تا تایتل */
+    margin-bottom: 32px;
+}
+
+.trait-header h4 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4; /* 140% */
+    color: #000000;
+}
+
+.trait-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* فاصله خطوط */
+}
+
+.motivation-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* رنگ بندی پس زمینه کارت ها */
+.bg-yellow { background-color: #F0EAD2; }
+.bg-green  { background-color: #DDE5B6; }
+.bg-blue   { background-color: #D3E8FB; }
+.bg-cyan   { background-color: #CDF0F4; }
+
+/* -------- User Flow Section -------- */
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 48px; /* اگر عکس گوشه تیز داره اینو پاک کن */
+}
+
+/* -------- Final Design Section -------- */
+.final-box {
+    background-color: #FFFFFF;
+    border-radius: 48px;
+    padding: 200px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px; /* فاصله متن از آیکون ها */
+}
+
+.final-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4; /* 140% */
+    text-align: center;
+}
+
+.final-icon {
+    width: 61.07px;
+    height: 61.07px;
+}
+
+/* -------- Evaluation Section -------- */
+.charts-wrapper {
+    position: relative;
+    width: 100%;
+    height: 589px;
+    border-radius: 48px;
+    overflow: hidden;
+}
+
+.charts-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.charts-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 48px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* فاصله المان ها از هم */
+    min-width: 400px; /* حداقل عرض برای نمایش بهتر متن */
+}
+
+.lock-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* دکمه Contact */
+.btn-primary {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #6C8EC9;
+    padding: 8px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    border: 1px solid #6C8EC9;
+    transition: all 0.3s ease; /* برای نرم شدن افکت هاور */
+}
+
+.btn-primary:hover {
+    background-color: #FFFFFF;
+    color: #6C8EC9;
+    border: 1px solid #6C8EC9;
+}
