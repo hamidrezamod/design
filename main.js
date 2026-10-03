@@ -81,53 +81,39 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-   // =========================================
-// Hero Title Letter Animation (Anime.js)
-// =========================================
-if (typeof anime !== 'undefined') {
-    const heroTitles = document.querySelectorAll('.hero-text, .text-h1');
+   /* =========================================
+   Modern Hero Entrance Animation (Fade Up + Blur)
+   ========================================= */
 
-    function wrapLettersPreservingHTML(element) {
-        // نکته کلیدی: استفاده از Array.from باعث میشه جاوا اسکریپت با دیدن تگ های هایلایت متوقف نشه
-        Array.from(element.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-                const text = node.nodeValue;
-                
-                // اگر فقط فضای خالی (Enter/Tab) بین تگ هاست، نادیده بگیر
-                if (text.trim() === '') return;
+/* حالت اولیه: مخفی، کمی پایین‌تر و تار */
+.profile-img, .title-icon,
+.hero-text, .text-h1,
+.metadata-table {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(12px);
+    /* استفاده از cubic-bezier برای یک انیمیشن فوق‌العاده نرم و سینمایی */
+    animation: heroReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
 
-                const fragment = document.createDocumentFragment();
-                for (let char of text) {
-                    if (char === ' ') {
-                        // حفظ دقیق فاصله ها بین کلمات
-                        fragment.appendChild(document.createTextNode(' '));
-                    } else {
-                        // قرار دادن هر حرف داخل یک اسپان
-                        const span = document.createElement('span');
-                        span.classList.add('letter');
-                        span.textContent = char;
-                        fragment.appendChild(span);
-                    }
-                }
-                node.parentNode.replaceChild(fragment, node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                // وقتی به کلمات هایلایت شده رسید، بره داخلشون و حروف اون ها رو هم جدا کنه
-                wrapLettersPreservingHTML(node);
-            }
-        });
+/* زمان‌بندی ورود (تاخیرهای پشت سر هم) */
+.profile-img, .title-icon {
+    animation-delay: 0.1s;
+}
+
+.hero-text, .text-h1 {
+    animation-delay: 0.3s; /* متن هیرو کمی بعد از عکس میاد */
+}
+
+.metadata-table {
+    animation-delay: 0.5s; /* اطلاعات زیر متن در نهایت میاد */
+}
+
+/* کی‌فریم اجرای انیمیشن */
+@keyframes heroReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
     }
-
-    heroTitles.forEach(heroTitle => {
-        wrapLettersPreservingHTML(heroTitle);
-
-        anime({
-            targets: heroTitle.querySelectorAll('.letter'),
-            rotateY: [-90, 0],
-            opacity: [0, 1],
-            duration: 1000,
-            easing: 'easeOutExpo',
-            delay: (el, i) => 25 * i, // تاخیر بین حروف. هرچی عدد کمتر بشه سریع تر تموم میشه
-            loop: false
-        });
-    });
 }
